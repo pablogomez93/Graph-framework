@@ -103,25 +103,6 @@ void test_neighbors(IMPL impl) {
     }
 }
 
-void stress_test(IMPL impl) {
-    uint nodes_q = 7500;//, edges_q = nodes_q*(nodes_q-1) / 2;
-    set<pair<uint,uint> > edges_suite;
-    Graph g(nodes_q, impl, true);
-
-    for (uint from = 0; from < nodes_q; ++from) {
-        for (uint to = 0; to < nodes_q; ++to) {
-            if(from == to) continue;
-            
-            edges_suite.insert(make_pair(from, to));
-        }
-    }
-
-    srand(time(NULL));
-    for (auto it = edges_suite.begin(); it != edges_suite.end(); ++it) {
-        g.applyEdge(it->first, it->second, rand());
-    }
-}
-
 int main() {
     test_addAndGetNodes(ADJACENCIES_MATRIX);
     test_addAndGetNodes(ADJACENCIES_LIST);
@@ -138,11 +119,6 @@ int main() {
     test_neighbors(ADJACENCIES_MATRIX);
     test_neighbors(ADJACENCIES_LIST);
     printf("Test neighbors passed!\n");
-
-    stress_test(ADJACENCIES_LIST);
-    printf("stress_test (ADJACENCIES_LIST) passed!\n");
-    stress_test(ADJACENCIES_MATRIX);
-    printf("stress_test (ADJACENCIES_MATRIX) passed!\n");
 
     printf("\nAll test passed!!!!!!!\n\n");
 
