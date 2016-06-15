@@ -10,7 +10,7 @@ typedef unsigned int uint;
 using namespace std;
 
 void test_addAndGetNodes(IMPL impl) {
-    uint nodes = 200, extraNodes = 300;
+    uint nodes = 100, extraNodes = 50;
     Graph g(nodes, impl);
 
     assert(g.getNodesCount() == nodes);
@@ -28,8 +28,8 @@ void test_addAndGetNodes(IMPL impl) {
 void test_addAndGetEdges(IMPL impl) {
     srand(time(NULL));
     set<pair<uint, uint> > savedEdges;
-    uint nodes = 200,
-         edges_count = (nodes*(nodes-1)/2) * 0.5; //50% of possible edges
+    uint nodes = 100,
+         edges_count = (nodes*(nodes-1)/2) * 0.5; //50% of edges
 
     Graph g(nodes, impl);
 
@@ -59,8 +59,8 @@ void test_addAndGetEdges(IMPL impl) {
 }
 
 void test_edgeWeight(IMPL impl) {
-    uint nodes = 200,
-         edges_count = (nodes*(nodes-1)/2) * 0.5; //50% of possible edges
+    uint nodes = 100,
+         edges_count = (nodes*(nodes-1)/2) * 0.5; //50% of edges
 
     Graph g(nodes, impl);
 
@@ -85,7 +85,7 @@ void test_edgeWeight(IMPL impl) {
 }
 
 void test_neighbors(IMPL impl) {
-    uint nodes = 200;
+    uint nodes = 100;
     Graph g(nodes, impl, true);
 
     for (uint current = 0; current < nodes; current++) {
@@ -104,7 +104,7 @@ void test_neighbors(IMPL impl) {
 }
 
 void stress_test(IMPL impl) {
-    uint nodes_q = 100;//, edges_q = nodes_q*(nodes_q-1) / 2;
+    uint nodes_q = 7500;//, edges_q = nodes_q*(nodes_q-1) / 2;
     set<pair<uint,uint> > edges_suite;
     Graph g(nodes_q, impl, true);
 
