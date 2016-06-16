@@ -6,7 +6,7 @@
 #include "graph.h"
 
 void stress_test(IMPL impl) {
-    uint nodes_q = 750;//, edges_q = nodes_q*(nodes_q-1) / 2;
+    uint nodes_q = 7500;//, edges_q = nodes_q*(nodes_q-1) / 2;
     set<pair<uint,uint> > edges_suite;
 
     for (uint from = 0; from < nodes_q; ++from) {

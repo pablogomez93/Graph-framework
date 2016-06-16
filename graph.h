@@ -60,11 +60,12 @@ public:
      * Nodes are represented by numbers between 0 and n-1 inclusive.
      * Is necesary to define if the graph is oriented or not and if it is implemented 
        over adjacencies matrix (ADJACENCIES_MATRIX) or adjacencies lists (ADJACENCIES_LIST).
+       If not nodes count is specified, the default value is 0.
        If not orientation is specified, the default value is false.
        If not implementation is specified, the default imple is ADJACENCIES_MATRIX
      * Each impl gets different execution times for each graph operation.
      */
-    Graph(uint n, IMPL impl = ADJACENCIES_MATRIX, bool isOrientedGraph = false);
+    Graph(uint n = 0, IMPL impl = ADJACENCIES_MATRIX, bool isOrientedGraph = false);
 
     /*
      * Applies an edge with a weight (optiona), between two diferent nodes v1 and v2 (nodes must be already applied to the graph).
