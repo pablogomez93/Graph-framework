@@ -6,13 +6,13 @@ COMPILE = ${CC} ${CFLAGS}
 .PHONY: cleantest compiletest runtest run_stress_test test stress_test
 
 all: clean
-	@${COMPILE} example.cpp graph.cpp -o main
+	@${COMPILE} example.cpp graph.cpp -o example
 
 run:
-	@./main
+	@./example
 
 clean:
-	@${RM} -f main
+	@${RM} -f example
 
 clean_test:
 	@${RM} -f test stress_test
