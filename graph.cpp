@@ -1,9 +1,8 @@
 #include "graph.h"
 
-Graph::Graph(uint nodesSpaceSize, IMPL impl, bool oriented) {
+Graph::Graph(uint nodesSpaceSize, bool oriented, IMPL impl) {
     isOriented = oriented;
     type = impl;
-    edges = list<Edge>();
     nodes = vector<Node>(nodesSpaceSize, Graph::Node());
 
     if(type == ADJACENCIES_MATRIX)
@@ -37,9 +36,9 @@ float Graph::getEdgeWeight(uint v1, uint v2) const {
     if(type == ADJACENCIES_MATRIX)
         return matrix[v1][v2];
     else
-        for (list<pair<uint,float> >::const_iterator it = adjList[v1].begin(); it != adjList[v1].end(); it++)
-            if(it->first == v2)
-                return it->second;
+        for (const auto& edge : adjList[v1]) 
+            if (edge.first == v2) 
+                return edge.second;
 
     return -1;
 }
@@ -48,8 +47,8 @@ bool Graph::areAdjacent(uint v1, uint v2) const {
     if(type == ADJACENCIES_MATRIX)
         return matrix[v1][v2] != DEFAULT_WEIGHT;
     else {
-        for (list<pair<uint,float> >::const_iterator it = adjList[v1].begin(); it != adjList[v1].end(); it++)
-            if(it->first == v2)
+        for (const auto& edge : adjList[v1]) 
+            if (edge.first == v2)
                 return true;
 
         return false;
@@ -97,7 +96,7 @@ void Graph::addVertex() {
         matrix.push_back(vector<float>(nodes.size(), DEFAULT_WEIGHT));
 
     } else {
-        adjList.push_back(list<pair<uint,float> >());
+        adjList.push_back({});
     }
 
 }
@@ -159,6 +158,20 @@ string Graph::getDOT(bool weighted) const {
         }
     }
 
+    for (uint i = 0; i < nodes.size(); i++) {
+        auto node = nodes[i];
+        if(node.isolated) {
+            dot << to_string(i);
+            dot << rel_type;
+            dot << to_string(i);
+            dot << "[style=invis];";
+
+            if(node.painted) {
+                dot << to_string(i);
+                dot << "[style=filled, fillcolor=red]";
+            }
+        }
+    }
 
     dot << "}";
 

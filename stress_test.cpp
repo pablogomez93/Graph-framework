@@ -18,7 +18,7 @@ void stress_test(IMPL impl) {
     }
 
     srand(time(NULL));
-    Graph g(nodes_q, impl, true);
+    Graph g(nodes_q, true, impl);
     for (auto it = edges_suite.begin(); it != edges_suite.end(); ++it) {
         g.applyEdge(it->first, it->second, rand());
     }

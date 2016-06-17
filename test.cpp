@@ -11,7 +11,7 @@ using namespace std;
 
 void test_addAndGetNodes(IMPL impl) {
     uint nodes = 100, extraNodes = 50;
-    Graph g(nodes, impl);
+    Graph g(nodes, false, impl);
 
     assert(g.getNodesCount() == nodes);
 
@@ -31,7 +31,7 @@ void test_addAndGetEdges(IMPL impl) {
     uint nodes = 100,
          edges_count = (nodes*(nodes-1)/2) * 0.5; //50% of edges
 
-    Graph g(nodes, impl);
+    Graph g(nodes, false, impl);
 
     //Add some edges, checking adjacency, and store them in an auxiliar set
     for (uint i = 0; i < edges_count; ++i) {
@@ -62,7 +62,7 @@ void test_edgeWeight(IMPL impl) {
     uint nodes = 100,
          edges_count = (nodes*(nodes-1)/2) * 0.5; //50% of edges
 
-    Graph g(nodes, impl);
+    Graph g(nodes, false, impl);
 
     //Add some edges, checking adjacency, and store them in an auxiliar set
     for (uint i = 0; i < edges_count; ++i) {
@@ -86,7 +86,7 @@ void test_edgeWeight(IMPL impl) {
 
 void test_neighbors(IMPL impl) {
     uint nodes = 100;
-    Graph g(nodes, impl, true);
+    Graph g(nodes, true, impl);
 
     for (uint current = 0; current < nodes; current++) {
         for (uint to = current+1; to < nodes; to++) {

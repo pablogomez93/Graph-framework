@@ -33,7 +33,7 @@ public:
             this->painted = false;
         }
 
-        Edge(const Edge& other ) {
+        Edge(const Edge& other) {
             this->from = other.from;
             this->to = other.to;
             this->weight = other.weight;
@@ -65,10 +65,10 @@ public:
        If not implementation is specified, the default imple is ADJACENCIES_MATRIX
      * Each impl gets different execution times for each graph operation.
      */
-    Graph(uint n = 0, IMPL impl = ADJACENCIES_MATRIX, bool isOrientedGraph = false);
+    Graph(uint n = 0, bool isOrientedGraph = false, IMPL impl = ADJACENCIES_MATRIX);
 
     /*
-     * Applies an edge with a weight (optiona), between two diferent nodes v1 and v2 (nodes must be already applied to the graph).
+     * Applies an edge with a weight (optional), between two diferent nodes v1 and v2 (nodes must be already applied to the graph).
      * This method is util when the graph has weight in each edge.
      */
     void applyEdge(uint v1, uint v2, float weight = 1);

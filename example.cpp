@@ -25,7 +25,7 @@ int main(){
 	bool isOriented = true;
 
 	//Create a graph with n nodes, oriented, based on ADJACENCIES_LIST.
-	Graph g(n, ADJACENCIES_LIST, isOriented);
+	Graph g(n, isOriented);
 
 	//Fill with 1% of the edges, with random weight in each. 
 	for (uint i = 0; i < ((n*(n-1))/100); ++i) {
