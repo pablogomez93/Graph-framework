@@ -36,17 +36,12 @@ public:
     };
 
     struct Node {
+        Node() : isolated(true),  painted(false), dIn(0), dOut(0) { }
+
         bool isolated;
         bool painted;
-        int dIn;
-        int dOut;
-
-        Node() {
-            isolated = true;
-            dIn = 0;
-            dOut = 0;
-            painted = false;
-        }
+        uint dIn;
+        uint dOut;
     };
 
     /*
