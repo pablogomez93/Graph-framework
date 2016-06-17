@@ -1,4 +1,11 @@
 #include "graph.h"
+#include <sstream>
+#include <utility>
+#include <limits>
+
+using namespace std;
+
+const float DEFAULT_WEIGHT = numeric_limits<float>::max();
 
 Graph::Graph(uint nodesSpaceSize, bool oriented, IMPL impl) {
     isOriented = oriented;

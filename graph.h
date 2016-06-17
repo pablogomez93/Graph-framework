@@ -1,15 +1,9 @@
 #ifndef __GRAPH__H__
 #define __GRAPH__H__
-#define DEFAULT_WEIGHT numeric_limits<float>::max()
 
 #include <vector>
 #include <list>
-#include <utility>
-#include <sstream>
 #include <string>
-#include <limits>
-
-using namespace std;
 
 typedef unsigned int uint;
 
@@ -97,7 +91,7 @@ public:
     /*
      * Return all edges of the graph, in a vector.
      */
-    list<Graph::Edge>& getEdges();
+    std::list<Graph::Edge>& getEdges();
 
     /*
      * Add a new vertex, with out adjacents.
@@ -145,18 +139,18 @@ public:
      * Get the .DOT format representation of the graph.
      * Useful to pipe it to a .DOT graphical tool.
      */
-    string getDOT(bool weighted) const;
+    std::string getDOT(bool weighted) const;
 
     class AdjacentsIterator {
 
         public:
-            AdjacentsIterator(const vector<float>& conections, uint n, IMPL type);
-            AdjacentsIterator(const list<pair<uint,float> >& adjacents, uint n, IMPL type);
+            AdjacentsIterator(const std::vector<float>& conections, uint n, IMPL type);
+            AdjacentsIterator(const std::list<std::pair<uint,float> >& adjacents, uint n, IMPL type);
 
             /*
              * Get actual adjacent of the iterator. This not modify the iterator status.
              */
-            pair<uint,float> next() const;
+            std::pair<uint,float> next() const;
 
             /*
              * Indicates if exist an adjacent node for review
@@ -171,21 +165,21 @@ public:
         private:
             uint _vSpace;
             IMPL _impl;
-            vector<float> _values;
-            list<pair<uint,float> > _adjacents;
-            vector<float>::const_iterator _it;
-            list<pair<uint,float> >::const_iterator _iter;
+            std::vector<float> _values;
+            std::list<std::pair<uint,float> > _adjacents;
+            std::vector<float>::const_iterator _it;
+            std::list<std::pair<uint,float> >::const_iterator _iter;
             int _current;
             bool firstCall;
     };
 
 private:
-    vector<vector<float> > matrix;
-    vector<list<pair<uint,float> > > adjList;
-    vector<Graph::Node> nodes;
+    std::vector<std::vector<float> > matrix;
+    std::vector<std::list<std::pair<uint,float> > > adjList;
+    std::vector<Graph::Node> nodes;
     bool isOriented;
     IMPL type;
-    list<Graph::Edge> edges;
+    std::list<Graph::Edge> edges;
 
 };
 

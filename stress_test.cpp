@@ -5,6 +5,8 @@
 #include <set>
 #include "graph.h"
 
+using namespace std;
+
 void stress_test(IMPL impl) {
     uint nodes_q = 7500;//, edges_q = nodes_q*(nodes_q-1) / 2;
     set<pair<uint,uint> > edges_suite;
