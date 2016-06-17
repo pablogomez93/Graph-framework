@@ -59,14 +59,14 @@ If you wanna run it, you must be careful because it may put slow your computer f
  * Applies an edge with a weight (optional), between two diferent nodes v1 and v2 (nodes must be already applied to the graph).
  * This method is util when the graph has weight in each edge.
  */
-void applyEdge(uint v1, uint v2, float weight = 1);
+void applyEdge(unsigned int v1, unsigned int v2, float weight = 1);
 ```
 ```c++
 /*
  * In non-oriented graph, returns if nodes v1 and v2, are adjacents, that means if exist an edge between both.
  * If graph is oriented, returns if exist an edge from node v1 to node v2.
  */
-bool areAdjacent(uint v1, uint v2) const;
+bool areAdjacent(unsigned int v1, unsigned int v2) const;
 ```
 ```c++
 /*
@@ -78,13 +78,13 @@ bool isOrientedGraph() const;
 /*
  * Get the cuantity of nodes are now in the graph.
  */
-uint getNodesCount() const;
+unsigned int getNodesCount() const;
 ```
 ```c++
 /*
  * Get the cuantity of edges are now inserted in the graph.
  */
-uint getEdgesCount() const;
+unsigned int getEdgesCount() const;
 ```
 ```c++
 /*
@@ -104,31 +104,31 @@ void addVertex();
  * Return the weight of the edge between nodes v1 and v2. If the graph is non-oriented, the orden of the parameters
  * doesn't matter, but it's important in a oriented graph, v1 indicates the origin of the edge, and v2 indicates the end.
  */
-float getEdgeWeight(uint v1, uint v2) const;
+float getEdgeWeight(unsigned int v1, unsigned int v2) const;
 ```
 ```c++
 /*
  * Return an iterator of the adjacents nodes for a single node in the graph.
  */
-const AdjacentsIterator adjacentsOf(uint v) const;
+const AdjacentsIterator adjacentsOf(unsigned int v) const;
 ```
 ```c++
 /*
  * Test if a node is isolated or not
  */
-bool isIsolatedNode(uint v) const;
+bool isIsolatedNode(unsigned int) const;
 ```
 ```c++
 /*
  * Paint a node to remark it on the graphic output
  */
-void paintNode(uint v);
+void paintNode(unsigned int v);
 ```
 ```c++
 /*
  * Unpaint a painted node
  */
-void unpaintNode(uint v);
+void unpaintNode(unsigned int v);
 ```
 ```c++
 /*
