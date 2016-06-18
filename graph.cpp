@@ -95,7 +95,7 @@ void Graph::applyEdge(uint v1, uint v2, float weight) {
     }
 }
 
-void Graph::addVertex() {
+uint Graph::addVertex() {
     nodes.push_back(Graph::Node());
 
     if(type == ADJACENCIES_MATRIX) {
@@ -108,10 +108,15 @@ void Graph::addVertex() {
         adjList.push_back({});
     }
 
+    return (uint) nodes.size();
 }
 
 void Graph::paintNode(uint v) {
     nodes[v].painted = true;
+}
+
+bool Graph::paintedNode(uint v) {
+    return nodes[v].painted;
 }
 
 void Graph::unpaintNode(uint v) {
@@ -120,6 +125,10 @@ void Graph::unpaintNode(uint v) {
 
 void Graph::paintEdge(Edge* e) {
     e->painted = true;
+}
+
+bool Graph::paintedEdge(Edge* e) {
+    return e->painted;
 }
 
 void Graph::unpaintEdge(Edge* e) {

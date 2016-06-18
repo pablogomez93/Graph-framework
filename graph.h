@@ -92,7 +92,7 @@ public:
      * Add a new vertex, with out adjacents.
      * Increases n by one.
      */
-    void addVertex();
+    uint addVertex();
 
     /*
      * Return the weight of the edge between nodes v1 and v2. If the graph is non-oriented, the orden of the parameters
@@ -116,6 +116,11 @@ public:
     void paintNode(uint v);
 
     /*
+     * Return true if the node is painted, false otherwise
+     */
+    bool paintedNode(uint v);
+
+    /*
      * Unpaint a painted node
      */
     void unpaintNode(uint v);
@@ -124,6 +129,11 @@ public:
      * Paint an edge to remark it on the graphic output
      */
     void paintEdge(Edge* v);
+
+    /*
+     * Return true if the edge is painted, false otherwise
+     */
+    bool paintedEdge(Edge* v);
 
     /*
      * Unpaint a painted edge
