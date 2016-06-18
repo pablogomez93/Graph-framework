@@ -97,7 +97,7 @@ list<Graph::Edge>& getEdges();
  * Add a new vertex, with out adjacents.
  * Increases n by one.
  */
-void addVertex();
+unsigned int addVertex();
 ```
 ```c++
 /*
@@ -147,4 +147,11 @@ void unpaintEdge(Edge* v);
  * Get the .DOT format representation of the graph.
  * Useful to pipe it to a .DOT graphical tool.
  */
-string getDOT(bool weighted) const;
+string getDOT(bool weighted = true) const;
+```
+```c++
+/*
+ * Export the graph into a file, in the standard DOT format for representing graphs.
+ */
+void exportDOT(const char* fileName, bool force_override = false) const;
+```
