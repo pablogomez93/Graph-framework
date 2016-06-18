@@ -134,7 +134,12 @@ public:
      * Get the .DOT format representation of the graph.
      * Useful to pipe it to a .DOT graphical tool.
      */
-    std::string getDOT(bool weighted) const;
+    std::string getDOT(bool weighted = true) const;
+
+    /*
+     * Export the graph to a file, in the standard DOT format for representing graphs
+     */
+    void exportDOT(const char* fileName, bool force_override = false) const;
 
     class AdjacentsIterator {
 

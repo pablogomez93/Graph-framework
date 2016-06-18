@@ -1,6 +1,8 @@
 #include "graph.h"
 #include <sstream>
+#include <fstream>
 #include <utility>
+#include <iostream>
 #include <limits>
 
 using namespace std;
@@ -135,7 +137,7 @@ string Graph::getDOT(bool weighted) const {
     
     dot << "{";
 
-    dot << "node [ shape=circle,width=0.5,height = 0.5,fixedsize=true]";
+    dot << "node[shape=circle,width=0.5,height=0.5,fixedsize=true]";
 
     for (auto edge = edges.begin(); edge != edges.end(); ++edge) {
         auto from = edge->from;
@@ -156,12 +158,12 @@ string Graph::getDOT(bool weighted) const {
 
         if(nodes[from].painted) {
             dot << to_string(from);
-            dot << "[style=filled, fillcolor=red]";
+            dot << "[style=filled,fillcolor=red]";
         }
 
         if(nodes[to].painted) {
             dot << to_string(to);
-            dot << "[style=filled, fillcolor=red]";
+            dot << "[style=filled,fillcolor=red]";
         }
     }
 
@@ -183,6 +185,38 @@ string Graph::getDOT(bool weighted) const {
     dot << "}";
 
     return dot.str();
+}
+
+void Graph::exportDOT(const char* file_name, bool force_override) const {
+    string extension(".dot");
+    string str_fname(file_name);
+    
+    // Formatting the final name of the file, with the extension appended 
+    // (if it is not already included on the file_name)
+    string fn(str_fname);
+    if(str_fname.length() < 5 || str_fname.substr(str_fname.length()-4,4) != extension) {
+        fn += extension;
+    }
+
+    //Checking if file exists and stop is force_override==false
+    ifstream ifile(fn);    
+    if(!force_override && ifile) {
+        cout << "[Error] File " + fn + " already exists.\n"
+             << "Use .exportDOT(..., force_override=true) to force writing."
+             << endl;
+        return;
+    }
+ 
+    //Proceeding to write into the file
+    try {
+        ofstream file;
+        file.open(fn);
+        file << getDOT();
+        file.close();
+    } catch (const std::exception &exc) {
+        cerr << exc.what();
+    }
+
 }
 
 const typename Graph::AdjacentsIterator Graph::adjacentsOf(uint v) const {
