@@ -39,7 +39,7 @@ cout << g.getDOT(false);
 ```
 Then, executing the previous code and dumping it, will give us a visual image of the graph:
 
-    ./example | dot -Tps -o graph.ps
+    ./example | dot -Tpng -o graph.png
 ![](graph.png)
 ## Tests and Stress tests
 
