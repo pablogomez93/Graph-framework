@@ -126,6 +126,12 @@ void paintNode(unsigned int v);
 ```
 ```c++
 /*
+ * Return true if the node is painted, false otherwise
+ */
+bool paintedNode(uint v);
+```
+```c++
+/*
  * Unpaint a painted node
  */
 void unpaintNode(unsigned int v);
@@ -135,6 +141,12 @@ void unpaintNode(unsigned int v);
  * Paint an edge to remark it on the graphic output
  */
 void paintEdge(Edge* v);
+```
+```c++
+/*
+ * Return true if the edge is painted, false otherwise
+ */
+bool paintedEdge(Edge* v);
 ```
 ```c++
 /*
