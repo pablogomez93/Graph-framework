@@ -15,7 +15,7 @@ Graph::Graph(uint nodesSpaceSize, bool oriented, IMPL impl) {
     nodes = vector<Node>(nodesSpaceSize, Graph::Node());
 
     if(type == ADJACENCIES_MATRIX)
-        matrix = vector<vector<float> > (nodesSpaceSize, vector<float>(nodesSpaceSize, DEFAULT_WEIGHT));
+        matrix = vector<vector<float> >(nodesSpaceSize, vector<float>(nodesSpaceSize, DEFAULT_WEIGHT));
     else
         adjList = vector<list<pair<uint,float> > >(nodesSpaceSize, list<pair<uint,float> >());
 }
@@ -56,7 +56,7 @@ bool Graph::areAdjacent(uint v1, uint v2) const {
     if(type == ADJACENCIES_MATRIX)
         return matrix[v1][v2] != DEFAULT_WEIGHT;
     else {
-        for (const auto& edge : adjList[v1]) 
+        for (const auto& edge : adjList[v1])
             if (edge.first == v2)
                 return true;
 
@@ -109,6 +109,31 @@ uint Graph::addVertex() {
     }
 
     return (uint) nodes.size();
+}
+
+void Graph::fill() {
+    for (uint node = 0; node < nodes.size() ; node++) {
+        if(isIsolatedNode(node)){
+            for (uint i = 0; i < nodes.size(); ++i) {
+                if(node == i) continue;
+
+                applyEdge(node, i);
+                if(isOriented)
+                    applyEdge(i, node);
+            }
+
+        } else {
+            for (uint i = 0; i < nodes.size(); ++i) {
+                if(node == i) continue;
+
+                if(!areAdjacent(node, i))
+                    applyEdge(node, i);
+
+                if(isOriented && !areAdjacent(i, node))
+                    applyEdge(i, node);
+            }
+        }
+    }
 }
 
 void Graph::paintNode(uint v) {

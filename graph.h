@@ -111,6 +111,11 @@ public:
     bool isIsolatedNode(uint v) const;
 
     /*
+     * Fill the graph with all posible edges. At the end, the graph will be a complete graph
+     */
+    void fill();
+
+    /*
      * Paint a node to remark it on the graphic output
      */
     void paintNode(uint v);

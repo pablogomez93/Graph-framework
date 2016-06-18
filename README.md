@@ -120,6 +120,12 @@ bool isIsolatedNode(unsigned int v) const;
 ```
 ```c++
 /*
+ * Fill the graph with all posible edges. At the end, the graph will be a complete graph
+ */
+void fill();
+```
+```c++
+/*
  * Paint a node to remark it on the graphic output
  */
 void paintNode(unsigned int v);
