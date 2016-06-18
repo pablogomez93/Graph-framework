@@ -116,7 +116,7 @@ const AdjacentsIterator adjacentsOf(unsigned int v) const;
 /*
  * Test if a node is isolated or not
  */
-bool isIsolatedNode(unsigned int) const;
+bool isIsolatedNode(unsigned int v) const;
 ```
 ```c++
 /*
@@ -128,7 +128,7 @@ void paintNode(unsigned int v);
 /*
  * Return true if the node is painted, false otherwise
  */
-bool paintedNode(uint v);
+bool paintedNode(umsigned int v);
 ```
 ```c++
 /*
