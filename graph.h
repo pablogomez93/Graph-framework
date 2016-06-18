@@ -147,7 +147,7 @@ public:
     std::string getDOT(bool weighted = true) const;
 
     /*
-     * Export the graph to a file, in the standard DOT format for representing graphs
+     * Export the graph into a file, in the standard DOT format for representing graphs.
      */
     void exportDOT(const char* fileName, bool force_override = false) const;
 
