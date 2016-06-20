@@ -131,11 +131,16 @@ unsigned int getEdgesCount() const;
  */
 list<Graph::Edge>& getEdges();
 ```
+#### addVertex
+***Description:*** Inserts a node (also called *vertex*) to the graph with out any adjacents.<br/>
+***Exception safety:*** this member function never throws exceptions.<br/>
+***Returns:*** A non-negative integer indicating the number assigned to the new added node. That number will always be the new count of nodes - 1.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(n)* amortized. *O(n²)* worst case.
+ADJACENCIES_LIST | *O(1)* amortized. *O(n)* worst case.
 ```c++
-/*
- * Add a new vertex, with out adjacents.
- * Increases n by one.
- */
 unsigned int addVertex();
 ```
 ```c++
