@@ -150,16 +150,16 @@ unsigned int addVertex();
  */
 float getEdgeWeight(unsigned int v1, unsigned int v2) const;
 ```
+#### isIsolatedNode
+***Description:*** Test if a node *v* is isolated or not. An isolated node is a node that is not an startpoint or endpoint of any edge.<br/>
+***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
+***Returns:*** A boolean value indicating if *v* is an isolated node. True if it is, false otherwise.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Return an iterator of the adjacents nodes for a single node in the graph.
- */
-const AdjacentsIterator adjacentsOf(unsigned int v) const;
-```
-```c++
-/*
- * Test if a node is isolated or not
- */
 bool isIsolatedNode(unsigned int v) const;
 ```
 ```c++
@@ -216,4 +216,10 @@ string getDOT(bool weighted = true) const;
  * Export the graph into a file, in the standard DOT format for representing graphs.
  */
 void exportDOT(const char* fileName, bool force_override = false) const;
+```
+```c++
+/*
+ * Return an iterator of the adjacents nodes for a single node in the graph.
+ */
+const AdjacentsIterator adjacentsOf(unsigned int v) const;
 ```
