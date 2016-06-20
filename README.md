@@ -113,10 +113,16 @@ ADJACENCIES_LIST | *O(1)*
 ```c++
 unsigned int getNodesCount() const;
 ```
+#### getEdgesCount
+***Description:*** A function to get the count of different edges of the graph. Note that in an oriente-graph, *(x,y)* edge is different to the *(y,x)* edge, but, they are the same edge on a non-oriented graph<br/>
+***Exception safety:*** this member function never throws exceptions.<br/>
+***Returns:*** A non-negative integer indicating the number of different edges of the graph.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Get the cuantity of edges are now inserted in the graph.
- */
 unsigned int getEdgesCount() const;
 ```
 ```c++
