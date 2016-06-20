@@ -64,12 +64,13 @@ About the edges, they are represented by a pair of nodes *(a, b)* where *a* and 
 Each edge may or may not have a specified numeric (float) weight on it, it is optional at the time to add the edge to the graph (it is an optional parameter). If none weight is provided at the time to create the edge, the default weight is 1.<br/>
 The weight of the edges can be thought as the distance between a pair of nodes (the ends nodes of the edge). Hence, if you ask from the distance or weight of an edge that has not been already added to the graph, the answer will be the ```DEFAULT_WEIGHT``` constant which is the infinity float value.
 
-#### Available methods: 
+### Available methods: 
+#### - applyEdge
 ```c++
-/*
- * Applies an edge with a weight (optional), between two diferent nodes v1 and v2 (nodes must be already applied to the graph).
- * This method is util when the graph has weight in each edge.
- */
+
+Applies an edge with a weight (optional), between two diferent nodes v1 and v2 (nodes must be already applied to the graph).
+This method is util when the graph has weight in each edge.
+ 
 void applyEdge(unsigned int v1, unsigned int v2, float weight = 1);
 ```
 ```c++
