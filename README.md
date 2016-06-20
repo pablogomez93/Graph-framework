@@ -168,41 +168,77 @@ bool isIsolatedNode(unsigned int v) const;
  */
 void fill();
 ```
+#### paintNode
+***Description:*** Paint the *v* node to remark it. If the graphic representation of the graph is requested (see ***.getDOT*** method) the node will appear colorful.<br/>
+***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
+***Returns:*** None
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Paint a node to remark it on the graphic output
- */
 void paintNode(unsigned int v);
 ```
+#### paintedNode
+***Description:*** Test if a node is painted o not (To see what means that a node is painted see ***.paintNode*** method).<br/>
+***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
+***Returns:*** A boolean value indicating if the node is painted or not.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Return true if the node is painted, false otherwise
- */
-bool paintedNode(umsigned int v);
+bool paintedNode(unsigned int v);
 ```
+#### unpaintNode
+***Description:*** Unpaint the node *v* (To see what means that a node is painted see ***.paintNode*** method). If the graphic representation of the graph is requested (see ***.getDOT*** method) the node will appear colorless.<br/>
+***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
+***Returns:*** None
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Unpaint a painted node
- */
 void unpaintNode(unsigned int v);
 ```
+#### paintEdge
+***Description:*** Paint the edge pointed by *e* to remark it. If the graphic representation of the graph is requested (see ***.getDOT*** method) the edge will appear colorful.<br/>
+***Exception safety:*** If NULL is passed by parameter an exception will be thrown.<br/>
+***Returns:*** None
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Paint an edge to remark it on the graphic output
- */
-void paintEdge(Edge* v);
+void paintEdge(Edge* e);
 ```
+#### paintedEdge
+***Description:*** Test if the edge poited by *e* is painted o not (To see what means that an edge is painted see ***.paintEdge*** method).<br/>
+***Exception safety:*** If NULL is passed by parameter an exception will be thrown.<br/>
+***Returns:*** A boolean value indicating if the edge pointed by *e* is painted or not.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Return true if the edge is painted, false otherwise
- */
-bool paintedEdge(Edge* v);
+bool paintedEdge(Edge* e);
 ```
+#### unpaintEdge
+***Description:*** Unpaint the edge pointed by *e* (To see what means that an edge is painted see ***.paintEdge*** method). If the graphic representation of the graph is requested (see ***.getDOT*** method) the edge will appear colorless.<br/>
+***Exception safety:*** If NULL is passed by parameter an exception will be thrown.<br/>
+***Returns:*** None
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Unpaint a painted edge
- */
-void unpaintEdge(Edge* v);
+void unpaintEdge(Edge* e);
 ```
 ```c++
 /*
