@@ -143,11 +143,16 @@ ADJACENCIES_LIST | *O(1)* amortized. *O(n)* worst case.
 ```c++
 unsigned int addVertex();
 ```
+#### getEdgeWeight
+***Description:*** A funtion to ask the weight of the edge between nodes *v1* and *v2*. If the graph is non-oriented, the orden of the parameters doesn't matter, but it's important in a oriented graph; in that case *v1* indicates the origin of the edge, and *v2* indicates the end.<br/>
+***Exception safety:*** If *v1* or *v2* aren't currents nodes on the graph or if *v1* is equals *v2*, an exception will be thrown.<br/>
+***Returns:***  A floating-point value with the edge weight between *v1* and *v2*. As it mentioned in the documentation intro, if there is not an edge between *v1* y *v2*, the ```DEFAULT_WEIGHT``` constant will be returned, which is the infinity float value.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(m)*
 ```c++
-/*
- * Return the weight of the edge between nodes v1 and v2. If the graph is non-oriented, the orden of the parameters
- * doesn't matter, but it's important in a oriented graph, v1 indicates the origin of the edge, and v2 indicates the end.
- */
 float getEdgeWeight(unsigned int v1, unsigned int v2) const;
 ```
 #### isIsolatedNode
