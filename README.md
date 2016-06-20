@@ -101,10 +101,16 @@ ADJACENCIES_LIST | *O(1)*
 ```c++
 bool isOrientedGraph() const;
 ```
+#### getNodesCount
+***Description:*** A function to get the count of the nodes of the graph.<br/>
+***Exception safety:*** this member function never throws exceptions.<br/>
+***Returns:*** A non-negative integer indicating the number of nodes of the graph.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Get the cuantity of nodes are now in the graph.
- */
 unsigned int getNodesCount() const;
 ```
 ```c++
