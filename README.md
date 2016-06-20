@@ -67,7 +67,7 @@ The weight of the edges can be thought as the distance between a pair of nodes (
 ### Available methods:
 #### applyEdge
 ***Description:*** This methods applies a new edge to the graph between nodes *v1* and *v2*. Optionally, you can specify a numeric weight to put on the edge. If none weight is specified, the default weight is 1.<br/>
-***Exception safety:*** If *v1* or *v2* aren't currents nodes on the graph or if *v1* is equals *v2*, an exception will throw.<br/>
+***Exception safety:*** If *v1* or *v2* aren't currents nodes on the graph or if *v1* is equals *v2*, an exception will be thrown.<br/>
 ***Returns:*** None
 
 Implementation | Temporal complexity
@@ -77,6 +77,15 @@ ADJACENCIES_LIST | *O(1)*
 ```c++
 void applyEdge(unsigned int v1, unsigned int v2[, float weight = 1]);
 ```
+#### areAdjacent
+***Description:*** This methods checks if two nodes *v1*, *v2* are adjacents. Note that in the case of an oriented graph, *v1* and *v2* will be adjacents if and only if exists an edge from *v1* to *v2*.<br/>
+***Exception safety:*** If *v1* or *v2* aren't currents nodes on the graph or if *v1* is equals *v2*, an exception will be thrown.<br/>
+***Returns:*** In a non-oriented graph, returns a boolean value indicating if an edge (*v1*,*v2*) or (*v2*,*v1*) exists. Otherwise, in an oriented graph, returns a boolean value indicating if an edge (*v1*,*v2*) exists.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(m)*
 ```c++
 /*
  * In non-oriented graph, returns if nodes v1 and v2, are adjacents, that means if exist an edge between both.
