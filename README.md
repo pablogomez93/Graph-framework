@@ -87,10 +87,6 @@ Implementation | Temporal complexity
 ADJACENCIES_MATRIX | *O(1)*
 ADJACENCIES_LIST | *O(m)*
 ```c++
-/*
- * In non-oriented graph, returns if nodes v1 and v2, are adjacents, that means if exist an edge between both.
- * If graph is oriented, returns if exist an edge from node v1 to node v2.
- */
 bool areAdjacent(unsigned int v1, unsigned int v2) const;
 ```
 ```c++
