@@ -89,10 +89,16 @@ ADJACENCIES_LIST | *O(m)*
 ```c++
 bool areAdjacent(unsigned int v1, unsigned int v2) const;
 ```
+#### isOrientedGraph
+***Description:*** A member function to ask for the oriented-node setting of the graph.<br/>
+***Exception safety:*** this member function never throws exceptions.<br/>
+***Returns:*** A boolean value indicating if the working mode of the graph is oriented or not, true if it is oriented, false otherwise.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)*
+ADJACENCIES_LIST | *O(1)*
 ```c++
-/*
- * Return if the graph is oriented or not, true if it is.
- */
 bool isOrientedGraph() const;
 ```
 ```c++
