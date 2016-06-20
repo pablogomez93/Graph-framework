@@ -181,7 +181,7 @@ ADJACENCIES_LIST | *O(1)*
 void paintNode(unsigned int v);
 ```
 #### paintedNode
-***Description:*** Test if a node is painted o not (To see what means that a node is painted see ***.paintNode*** method).<br/>
+***Description:*** Test if a node is painted o not (to see what means that a node is painted see ***.paintNode*** method).<br/>
 ***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
 ***Returns:*** A boolean value indicating if the node is painted or not.
 
@@ -193,7 +193,7 @@ ADJACENCIES_LIST | *O(1)*
 bool paintedNode(unsigned int v);
 ```
 #### unpaintNode
-***Description:*** Unpaint the node *v* (To see what means that a node is painted see ***.paintNode*** method). If the graphic representation of the graph is requested (see ***.getDOT*** method) the node will appear colorless.<br/>
+***Description:*** Unpaint the node *v* (to see what means that a node is painted see ***.paintNode*** method). If the graphic representation of the graph is requested (see ***.getDOT*** method) the node will appear colorless.<br/>
 ***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
 ***Returns:*** None
 
@@ -217,7 +217,7 @@ ADJACENCIES_LIST | *O(1)*
 void paintEdge(Edge* e);
 ```
 #### paintedEdge
-***Description:*** Test if the edge poited by *e* is painted o not (To see what means that an edge is painted see ***.paintEdge*** method).<br/>
+***Description:*** Test if the edge poited by *e* is painted o not (to see what means that an edge is painted see ***.paintEdge*** method).<br/>
 ***Exception safety:*** If NULL is passed by parameter an exception will be thrown.<br/>
 ***Returns:*** A boolean value indicating if the edge pointed by *e* is painted or not.
 
@@ -229,7 +229,7 @@ ADJACENCIES_LIST | *O(1)*
 bool paintedEdge(Edge* e);
 ```
 #### unpaintEdge
-***Description:*** Unpaint the edge pointed by *e* (To see what means that an edge is painted see ***.paintEdge*** method). If the graphic representation of the graph is requested (see ***.getDOT*** method) the edge will appear colorless.<br/>
+***Description:*** Unpaint the edge pointed by *e* (to see what means that an edge is painted see ***.paintEdge*** method). If the graphic representation of the graph is requested (see ***.getDOT*** method) the edge will appear colorless.<br/>
 ***Exception safety:*** If NULL is passed by parameter an exception will be thrown.<br/>
 ***Returns:*** None
 
