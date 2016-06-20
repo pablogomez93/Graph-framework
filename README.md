@@ -54,6 +54,17 @@ If you wanna run it, you must be careful because it may put slow your computer f
     make stress_test
 
 ## Documentation
+
+Let ```V``` be the set of nodes of the graph and ```E``` the set of edges.
+Also, let ```n``` be equals to ```|V|``` and ```m``` equals to ```|E|```.
+
+In this implementation, the nodes are identified by non-negative integers strarting from 0 (inclusive) to n-1 (inclusive), the assigned integer for each node is assigned in order of arrival, in other words, the first node added to the graph will be assigned to the number 0, the next node to the number 1, and so on until the last node will have assigned the number n-1.
+
+About the edges, they are represented by a pair of nodes *(a, b)* where *a* and *b* are the ends of the edge and, if the graph is oriented, *a* is the origin and *b* is the destination. This led that there are as much ```n*(n-1)/2``` different edges in a non-oriented graph, and ```n*(n-1)``` in an oriented one.<br/>
+Each edge may or may not have a specified numeric (float) weight on it, it is optional at the time to add the edge to the graph (it is an optional parameter). If none weight is provided at the time to create the edge, the default weight is 1.<br/>
+The weight of the edges can be thought as the distance between a pair of nodes (the ends nodes of the edge). Hence, if you ask from the distance or weight of an edge that has not been already added to the graph, the answer will be the ```DEFAULT_WEIGHT``` constant which is the infinity float value.
+
+#### Available methods: 
 ```c++
 /*
  * Applies an edge with a weight (optional), between two diferent nodes v1 and v2 (nodes must be already applied to the graph).
