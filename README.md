@@ -173,10 +173,16 @@ ADJACENCIES_LIST | *O(1)*
 ```c++
 bool isIsolatedNode(unsigned int v) const;
 ```
+#### fill
+***Description:*** This method completes the graph, that means, it apply all missed edges of the graph until the graph is complete. After this procedure finish, the graph will be a complete graph with *n . (n-1)* different edges for an oriented-graph and with *n . (n-1) / 2* different edges for a non-oriented graph.<br/>
+***Exception safety:*** this member function never throws exceptions.<br/>
+***Returns:*** None.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(n²)*
+ADJACENCIES_LIST | *O(n²)*
 ```c++
-/*
- * Fill the graph with all posible edges. At the end, the graph will be a complete graph
- */
 void fill();
 ```
 #### paintNode
