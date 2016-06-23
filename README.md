@@ -251,11 +251,16 @@ ADJACENCIES_LIST | *O(1)*
 ```c++
 void unpaintEdge(Edge* e);
 ```
+#### getDOT
+***Description:*** Returns a string containing the representation of the graph in the .DOT standard format for representing graphs. It is useful as input of a generic graphic tool for drawing graphs, as *graphviz*. This method has an optional parameter *weighted* (default is true) to indicate if the weights of the edges must be printed or not. If the graph is in oriented-mode, the edges will appear as arrows, and as lines otherwise.<br/>
+***Exception safety:*** this member function never throws exceptions.<br/>
+***Returns:*** A string containing the dot representation of the graph, including painted nodes and edges.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(m + n)*
+ADJACENCIES_LIST | *O(m + n)*
 ```c++
-/*
- * Get the .DOT format representation of the graph.
- * Useful to pipe it to a .DOT graphical tool.
- */
 string getDOT(bool weighted = true) const;
 ```
 ```c++
