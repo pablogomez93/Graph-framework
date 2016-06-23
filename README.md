@@ -72,8 +72,8 @@ The weight of the edges can be thought as the distance between a pair of nodes (
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 void applyEdge(unsigned int v1, unsigned int v2[, float weight = 1]);
 ```
@@ -84,8 +84,8 @@ void applyEdge(unsigned int v1, unsigned int v2[, float weight = 1]);
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(m)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(m)*
 ```c++
 bool areAdjacent(unsigned int v1, unsigned int v2) const;
 ```
@@ -96,8 +96,8 @@ bool areAdjacent(unsigned int v1, unsigned int v2) const;
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 bool isOrientedGraph() const;
 ```
@@ -108,8 +108,8 @@ bool isOrientedGraph() const;
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 unsigned int getNodesCount() const;
 ```
@@ -120,8 +120,8 @@ unsigned int getNodesCount() const;
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 unsigned int getEdgesCount() const;
 ```
@@ -132,8 +132,8 @@ unsigned int getEdgesCount() const;
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)* to return the linked-list reference.
-ADJACENCIES_LIST | *O(1)* to return the linked-list reference.
+ADJACENCIES MATRIX | *O(1)* to return the linked-list reference.
+ADJACENCIES LISTS | *O(1)* to return the linked-list reference.
 ```c++
 list<Graph::Edge>& getEdges();
 ```
@@ -144,8 +144,8 @@ list<Graph::Edge>& getEdges();
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(n)* amortized. *O(n²)* worst case.
-ADJACENCIES_LIST | *O(1)* amortized. *O(n)* worst case.
+ADJACENCIES MATRIX | *O(n)* amortized. *O(n²)* worst case.
+ADJACENCIES LISTS | *O(1)* amortized. *O(n)* worst case.
 ```c++
 unsigned int addVertex();
 ```
@@ -156,8 +156,8 @@ unsigned int addVertex();
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(m)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(m)*
 ```c++
 float getEdgeWeight(unsigned int v1, unsigned int v2) const;
 ```
@@ -168,8 +168,8 @@ float getEdgeWeight(unsigned int v1, unsigned int v2) const;
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 bool isIsolatedNode(unsigned int v) const;
 ```
@@ -180,8 +180,8 @@ bool isIsolatedNode(unsigned int v) const;
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(n²)*
-ADJACENCIES_LIST | *O(n²)*
+ADJACENCIES MATRIX | *O(n²)*
+ADJACENCIES LISTS | *O(n²)*
 ```c++
 void fill();
 ```
@@ -192,8 +192,8 @@ void fill();
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 void paintNode(unsigned int v);
 ```
@@ -204,8 +204,8 @@ void paintNode(unsigned int v);
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 bool paintedNode(unsigned int v);
 ```
@@ -216,8 +216,8 @@ bool paintedNode(unsigned int v);
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 void unpaintNode(unsigned int v);
 ```
@@ -228,8 +228,8 @@ void unpaintNode(unsigned int v);
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 void paintEdge(Edge* e);
 ```
@@ -240,8 +240,8 @@ void paintEdge(Edge* e);
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 bool paintedEdge(Edge* e);
 ```
@@ -252,8 +252,8 @@ bool paintedEdge(Edge* e);
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(1)*
-ADJACENCIES_LIST | *O(1)*
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
 ```c++
 void unpaintEdge(Edge* e);
 ```
@@ -264,8 +264,8 @@ void unpaintEdge(Edge* e);
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(m + n)*
-ADJACENCIES_LIST | *O(m + n)*
+ADJACENCIES MATRIX | *O(m + n)*
+ADJACENCIES LISTS | *O(m + n)*
 ```c++
 string getDOT([bool weighted = true]) const;
 ```
@@ -276,8 +276,8 @@ string getDOT([bool weighted = true]) const;
 
 Implementation | Temporal complexity
 ------------ | -------------
-ADJACENCIES_MATRIX | *O(m + n)*
-ADJACENCIES_LIST | *O(m + n)*
+ADJACENCIES MATRIX | *O(m + n)*
+ADJACENCIES LISTS | *O(m + n)*
 ```c++
 void exportDOT(const char* file_name[, bool force_override = false]) const;
 ```
