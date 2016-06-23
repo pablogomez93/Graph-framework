@@ -267,7 +267,7 @@ Implementation | Temporal complexity
 ADJACENCIES_MATRIX | *O(m + n)*
 ADJACENCIES_LIST | *O(m + n)*
 ```c++
-string getDOT(bool weighted = true) const;
+string getDOT([bool weighted = true]) const;
 ```
 #### exportDOT
 ***Description:*** Idem to the **.getDOT** method but exporting the result to a file named *file_name*. If the file already exists, it throws a warning and stop the process. To force the override of the file, use the second argument *force_override* who is false by default.<br/>
@@ -279,7 +279,7 @@ Implementation | Temporal complexity
 ADJACENCIES_MATRIX | *O(m + n)*
 ADJACENCIES_LIST | *O(m + n)*
 ```c++
-void exportDOT(const char* file_name, bool force_override = false) const;
+void exportDOT(const char* file_name[, bool force_override = false]) const;
 ```
 ```c++
 /*
