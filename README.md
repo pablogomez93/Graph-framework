@@ -263,11 +263,17 @@ ADJACENCIES_LIST | *O(m + n)*
 ```c++
 string getDOT(bool weighted = true) const;
 ```
+#### exportDOT
+***Description:*** Idem to the **.getDOT** method but exporting the result to a file named *file_name*. If the file already exists, it throws a warning and stop the process. To force the override of the file, use the second argument *force_override* who is false by default.<br/>
+***Exception safety:*** this member function never throws exceptions but throws warnings if the *force_override* param is setted to false and the file named *file_name* already exists.<br/>
+***Returns:*** None.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(m + n)*
+ADJACENCIES_LIST | *O(m + n)*
 ```c++
-/*
- * Export the graph into a file, in the standard DOT format for representing graphs.
- */
-void exportDOT(const char* fileName, bool force_override = false) const;
+void exportDOT(const char* file_name, bool force_override = false) const;
 ```
 ```c++
 /*
