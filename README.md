@@ -125,10 +125,16 @@ ADJACENCIES_LIST | *O(1)*
 ```c++
 unsigned int getEdgesCount() const;
 ```
+#### getEdges
+***Description:*** Return all edges of the graph, in a vector.<br/>
+***Exception safety:*** this member function never throws exceptions.<br/>
+***Returns:*** A reference to a linked list with every edge on the graph.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES_MATRIX | *O(1)* to return the linked-list reference.
+ADJACENCIES_LIST | *O(1)* to return the linked-list reference.
 ```c++
-/*
- * Return all edges of the graph, in a vector.
- */
 list<Graph::Edge>& getEdges();
 ```
 #### addVertex
