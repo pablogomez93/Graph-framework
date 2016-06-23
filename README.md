@@ -62,7 +62,9 @@ In this implementation, the nodes are identified by non-negative integers strart
 
 About the edges, they are represented by a pair of nodes *(a, b)* where *a* and *b* are the ends of the edge and, if the graph is oriented, *a* is the origin and *b* is the destination. This led that there are as much ```n*(n-1)/2``` different edges in a non-oriented graph, and ```n*(n-1)``` in an oriented one.<br/>
 Each edge may or may not have a specified numeric (float) weight on it, it is optional at the time to add the edge to the graph (it is an optional parameter). If none weight is provided at the time to create the edge, the default weight is 1.<br/>
-The weight of the edges can be thought as the distance between a pair of nodes (the ends nodes of the edge). Hence, if you ask from the distance or weight of an edge that has not been already added to the graph, the answer will be the ```DEFAULT_WEIGHT``` constant which is the infinity float value.
+The weight of the edges can be thought as the distance between a pair of nodes (the ends nodes of the edge). Hence, if you ask from the distance or weight of an edge that has not been already added to the graph, the answer will be the ```DEFAULT_WEIGHT``` constant which is the infinity float value.<br/>
+
+To be ending, the space used by this framework is *O(m+n)* if adjacencies lists is the selected implementation, and, in the other hand, *O(n²)* on the adjacencies matrix implementation.
 
 ### Available methods:
 #### applyEdge
