@@ -283,6 +283,22 @@ ADJACENCIES LISTS | *O(m + n)*
 ```c++
 void exportDOT(const char* file_name[, bool force_override = false]) const;
 ```
+#### adjacentsOf
+***Description:*** This member function creates and return an AdjacentsIterator. An AdjacentsIterator member class lets you make a simple iteration over all the neighbors of a given node *v*, it provide its own member functions (described on the ([Neighbors/Adjacencies Iterator](#Neighbors)) below) to control the iterator.<br/>
+***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
+***Returns:*** An AdjacentsIterator to iterate over the neighbors nodes of *v*.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
+```c++
+const AdjacentsIterator adjacentsOf(unsigned int v) const;
+```
+### Neighbors/Adjacencies Iterator:
+This framework also includes a neighbors iterator for a given node. It provides the member functions to advance the iterator, ask for the current, and check if there is more neighbors before advance; this are the most necessary things to iterate over the neighbors.
+#### Constructor
+
 ```c++
 /*
  * Return an iterator of the adjacents nodes for a single node in the graph.
