@@ -300,7 +300,19 @@ This framework also includes a neighbors iterator for a given node. It provides 
 #### Constructor
 To get an AdjacentsIterator just use the ***adjacentsOf*** method of a graph instance (see the documentation of this [method](#adjacentsof) above), which returns a new iterator of type AdjacentsIterator for a single node *v*.
 #### Available iterator methods:
-#### advance
+##### next
+***Description:*** Get the current neighbor pointed by the iterator. To advance to the next neighbor, use the ***.advance*** method.<br/>
+***Exception safety:*** This operation never throw exception if the iterator was advanced carefuly (with the ***.thereIsMore*** method), otherwise, the result is undefined behavior.<br/>
+***Returns:*** A pair containing the number of the neighbor node and the weight of the edge between both nodes.
+
+Implementation | Temporal complexity
+------------ | -------------
+ADJACENCIES MATRIX | *O(1)*
+ADJACENCIES LISTS | *O(1)*
+```c++
+pair<unsigned int, float> next() const;
+```
+##### advance
 ***Description:*** Advance the iterator to the next neighbor.<br/>
 ***Exception safety:*** This operation never throw exception, but ***.thereIsMore*** method must be used before to check if exists another neighbor. If that is not checked before, the result is undefined behavior.<br/>
 ***Returns:*** None
@@ -312,7 +324,7 @@ ADJACENCIES LISTS | *O(1)*, repeat this operation for all neighbors cost *O(min(
 ```c++
 void advance();
 ```
-#### thereIsMore
+##### thereIsMore
 ***Description:*** Test if exists another neighbor to visit, if it is true, the use of ***.advance*** and ***.next*** functions is safety.<br/>
 ***Exception safety:*** This operation never throw exception.<br/>
 ***Returns:*** A boolean value indicating if exists remaining neighbors to visit. True if exists at least one.
