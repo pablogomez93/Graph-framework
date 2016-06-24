@@ -284,7 +284,7 @@ ADJACENCIES LISTS | *O(m + n)*
 void exportDOT(const char* file_name[, bool force_override = false]) const;
 ```
 #### adjacentsOf
-***Description:*** This member function creates and return an AdjacentsIterator. An AdjacentsIterator member class lets you make a simple iteration over all the neighbors of a given node *v*, it provide its own member functions (described on the ([Neighbors/Adjacencies Iterator](#neighborsadjacencies-iterator)) below) to control the iterator.<br/>
+***Description:*** This member function creates and return an AdjacentsIterator. An AdjacentsIterator member class lets you make a simple iteration over all the neighbors of a given node *v*, it provide its own member functions (described on the [Neighbors/Adjacencies Iterator](#neighborsadjacencies-iterator) below) to control the iterator.<br/>
 ***Exception safety:*** If *v* is not a node of the graph, an exception will be thrown.<br/>
 ***Returns:*** An AdjacentsIterator to iterate over the neighbors nodes of *v*.
 
