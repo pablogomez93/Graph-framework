@@ -298,10 +298,7 @@ const AdjacentsIterator adjacentsOf(unsigned int v) const;
 ### Neighbors/Adjacencies Iterator:
 This framework also includes a neighbors iterator for a given node. It provides the member functions to advance the iterator, ask for the current, and check if there is more neighbors before advance; this are the most necessary things to iterate over the neighbors.
 #### Constructor
-
+To get an AdjacentsIterator just use the ***adjacentsOf*** method of a graph instance (see the documentation of this method above), which returns a new iterator of type AdjacentsIterator for a single node
 ```c++
-/*
- * Return an iterator of the adjacents nodes for a single node in the graph.
- */
 const AdjacentsIterator adjacentsOf(unsigned int v) const;
 ```
