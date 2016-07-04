@@ -32,7 +32,7 @@ int main(){
 		uint from = rand()%n;
 		uint to = rand()%n;
 
-		if(!g.areAdjacent(from, to)) {
+		if(from != to && !g.areAdjacent(from, to)) {
 			g.applyEdge(from, to);
 
 			g.paintNode(from);

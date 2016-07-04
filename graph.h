@@ -36,12 +36,13 @@ public:
     };
 
     struct Node {
-        Node() : isolated(true),  painted(false), dIn(0), dOut(0) { }
+        Node() : isolated(true),  painted(false), dIn(0), dOut(0) , _starting_neighbor_it(-1) { }
 
         bool isolated;
         bool painted;
         uint dIn;
         uint dOut;
+        int _starting_neighbor_it;
     };
 
     /*
@@ -159,8 +160,8 @@ public:
     class AdjacentsIterator {
 
         public:
-            AdjacentsIterator(const std::vector<float>& conections, uint n, IMPL type);
-            AdjacentsIterator(const std::list<std::pair<uint,float> >& adjacents, uint n, IMPL type);
+            AdjacentsIterator(Graph::Node me, const std::vector<float>& conections, uint n, IMPL type);
+            AdjacentsIterator(Graph::Node me, const std::list<std::pair<uint,float> >& adjacents, uint n, IMPL type);
 
             /*
              * Get actual adjacent of the iterator. This not modify the iterator status.
