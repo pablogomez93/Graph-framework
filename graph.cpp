@@ -4,6 +4,7 @@
 #include <utility>
 #include <iostream>
 #include <limits>
+#include <stdexcept>
 
 using namespace std;
 
@@ -38,10 +39,16 @@ list<Graph::Edge>& Graph::getEdges() {
 
 
 bool Graph::isIsolatedNode(uint v) const {
+    if(v >= nodes.size())
+        throw invalid_argument("Invalid argument on isIsolatedNode member function, v isn't a node of the graph.");
+
     return nodes[v].isolated;
 }
 
 float Graph::getEdgeWeight(uint v1, uint v2) const {
+    if(v1 >= nodes.size() || v2 >= nodes.size()) 
+        throw invalid_argument("Invalid arguments on getEdgeWeight member function, v1 or v2 aren't nodes of the graph.");
+
     if(type == ADJACENCIES_MATRIX)
         return matrix[v1][v2];
     else
@@ -53,6 +60,9 @@ float Graph::getEdgeWeight(uint v1, uint v2) const {
 }
 
 bool Graph::areAdjacent(uint v1, uint v2) const {
+    if(v1 >= nodes.size() || v2 >= nodes.size()) 
+        throw invalid_argument("Invalid arguments on areAdjacent member function, v1 or v2 aren't nodes of the graph.");
+
     if(type == ADJACENCIES_MATRIX)
         return matrix[v1][v2] != DEFAULT_WEIGHT;
     else {
@@ -65,6 +75,9 @@ bool Graph::areAdjacent(uint v1, uint v2) const {
 }
 
 void Graph::applyEdge(uint v1, uint v2, float weight) {
+    if(v1 >= nodes.size() || v2 >= nodes.size()) 
+        throw invalid_argument("Invalid arguments on applyEdge member function, v1 or v2 aren't nodes of the graph.");
+
     if(type == ADJACENCIES_MATRIX) {
         if(matrix[v1][v2] == DEFAULT_WEIGHT)
             edges.push_back(Edge(v1,v2,weight));
@@ -146,26 +159,44 @@ void Graph::fill() {
 }
 
 void Graph::paintNode(uint v) {
+    if(v >= nodes.size()) 
+        throw invalid_argument("Invalid argument on paintNode member function, v is not a node of the graph.");
+
     nodes[v].painted = true;
 }
 
 bool Graph::paintedNode(uint v) {
+    if(v >= nodes.size()) 
+        throw invalid_argument("Invalid argument on paintedNode member function, v is not a node of the graph.");
+
     return nodes[v].painted;
 }
 
 void Graph::unpaintNode(uint v) {
+    if(v >= nodes.size()) 
+        throw invalid_argument("Invalid argument on unpaintNode member function, v is not a node of the graph.");
+    
     nodes[v].painted = false;    
 }
 
 void Graph::paintEdge(Edge* e) {
+    if(e == NULL) 
+        throw invalid_argument("Invalid argument on paintEdge member function, NULL pointer passed by parameter.");
+    
     e->painted = true;
 }
 
 bool Graph::paintedEdge(Edge* e) {
+    if(e == NULL) 
+        throw invalid_argument("Invalid argument on paintedEdge member function, NULL pointer passed by parameter.");
+    
     return e->painted;
 }
 
 void Graph::unpaintEdge(Edge* e) {
+    if(e == NULL) 
+        throw invalid_argument("Invalid argument on unpaintEdge member function, NULL pointer passed by parameter.");
+    
     e->painted = false;    
 }
 
@@ -263,6 +294,9 @@ void Graph::exportDOT(const char* file_name, bool force_override) const {
 }
 
 const typename Graph::AdjacentsIterator Graph::adjacentsOf(uint v) const {
+    if(v >= nodes.size()) 
+        throw invalid_argument("Invalid argument on adjacentsOf member function, v is not a node of the graph.");
+
     if(type == ADJACENCIES_MATRIX)
         return AdjacentsIterator(nodes[v], matrix[v], nodes.size(), type);
     else
