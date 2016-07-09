@@ -41,7 +41,7 @@ cout << g.getDOT(false);
 Then, executing the previous code and dumping it, will give us a visual image of the graph:
 
     ./example | dot -Tpng -o graph.png
-![](graph_plot.png)
+![](graph.png)
 ## Tests and Stress tests
 
 There are also included a test suite which run some test to check the correcteness of the graph actions.<br/>
