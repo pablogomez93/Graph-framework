@@ -103,6 +103,38 @@ void test_neighbors(IMPL impl) {
     }
 }
 
+void test_DFS(IMPL impl) {
+    uint nodes = 9;
+    Graph g(nodes, true, impl);    
+    
+    //Test some edges
+    g.applyEdge(0, 1);
+    g.applyEdge(0, 2);
+    g.applyEdge(2, 3);
+    g.applyEdge(2, 4);
+    g.applyEdge(3, 5);
+    g.applyEdge(3, 6);
+    g.applyEdge(3, 7);
+    g.applyEdge(4, 7);
+    g.applyEdge(4, 8);
+    g.applyEdge(6, 8);
+
+    Graph::DFSIterator dfs1(0, &g);
+    while(dfs1.thereIsMore()) {
+        dfs1.next();
+        dfs1.advance();
+    }
+
+    //Test full graph
+    g.fill();
+
+    Graph::DFSIterator dfs2(0, &g);
+    while(dfs2.thereIsMore()) {
+        dfs2.next();
+        dfs2.advance();
+    }
+}
+
 int main() {
     test_addAndGetNodes(ADJACENCIES_MATRIX);
     test_addAndGetNodes(ADJACENCIES_LIST);
@@ -119,6 +151,10 @@ int main() {
     test_neighbors(ADJACENCIES_MATRIX);
     test_neighbors(ADJACENCIES_LIST);
     printf("Test neighbors passed!\n");
+
+    test_DFS(ADJACENCIES_MATRIX);
+    test_DFS(ADJACENCIES_LIST);
+    printf("Test DFS passed!\n");
 
     printf("\nAll test passed!!!!!!!\n\n");
 

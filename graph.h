@@ -4,6 +4,7 @@
 #include <vector>
 #include <list>
 #include <string>
+#include <stack>
 
 typedef unsigned int uint;
 
@@ -13,6 +14,7 @@ class Graph {
 
 public:
     class AdjacentsIterator;
+    class DFSIterator;
     
     struct Edge {
         uint from;
@@ -106,6 +108,8 @@ public:
      */
     const AdjacentsIterator adjacentsOf(uint v) const;
 
+    //const DFSIterator DFS(uint v) const;
+
     /*
      * Test if a node is isolated or not
      */
@@ -164,12 +168,12 @@ public:
             AdjacentsIterator(Graph::Node me, const std::list<std::pair<uint,float> >& adjacents, uint n, IMPL type);
 
             /*
-             * Get actual adjacent of the iterator. This not modify the iterator status.
+             * Get current adjacent of the iterator. This not modify the iterator status.
              */
             std::pair<uint,float> next() const;
 
             /*
-             * Indicates if exist an adjacent node for review
+             * Indicates if exist an adjacent node pending for review
              */
             bool thereIsMore() const;
 
@@ -187,6 +191,27 @@ public:
             std::list<std::pair<uint,float> >::const_iterator _iter;
             int _current;
             bool firstCall;
+    };
+
+    class DFSIterator {
+
+        public:
+            DFSIterator(uint source, Graph* g);
+
+            /*
+             * Get current node of the iterator. This not modify the iterator status.
+             */
+            uint next() const;
+            
+            void advance();
+
+            bool thereIsMore() const;
+
+        private:
+            Graph* _g;
+            uint _source;
+            std::stack<uint> _q;
+            std::vector<bool> _visited_nodes;
     };
 
 private:

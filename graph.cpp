@@ -303,6 +303,13 @@ const typename Graph::AdjacentsIterator Graph::adjacentsOf(uint v) const {
         return AdjacentsIterator(nodes[v], adjList[v], nodes.size(), type);
 }
 
+// const typename Graph::DFSIterator Graph::DFS(uint v) const {
+//     if(v >= nodes.size()) 
+//         throw invalid_argument("Invalid argument on DFS member function, v is not a node of the graph.");
+
+//     return DFSIterator(v, this);
+// }
+
 
 
 /*
@@ -352,4 +359,45 @@ bool Graph::AdjacentsIterator::thereIsMore() const {
         return -1 < _current && _current < ((long int)_vSpace);
     else
         return _iter != _adjacents.end();
+}
+
+
+
+/*
+ * DFS iterator implementation.
+ */
+
+Graph::DFSIterator::DFSIterator(uint source, Graph* g) {
+    _g = g;
+    _source = source;
+    _visited_nodes = vector<bool>((*g).getNodesCount(), false);
+    
+    _q.push(source);
+}
+
+void Graph::DFSIterator::advance() {
+    do {
+        uint last = _q.top();
+        _q.pop();
+
+        if(!_visited_nodes[last]) {
+            _visited_nodes[last] = true;
+
+            for(auto it = (*_g).adjacentsOf(last); it.thereIsMore(); it.advance())
+                if(!_visited_nodes[it.next().first]) 
+                    _q.push(it.next().first);
+             
+        }
+        
+    } while(!_q.empty() && _visited_nodes[_q.top()]);
+    
+    return;
+}
+
+uint Graph::DFSIterator::next() const {
+    return _q.top();
+}
+
+bool Graph::DFSIterator::thereIsMore() const {
+    return !_q.empty();
 }
