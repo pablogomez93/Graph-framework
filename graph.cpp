@@ -401,3 +401,43 @@ uint Graph::DFSIterator::next() const {
 bool Graph::DFSIterator::thereIsMore() const {
     return !_q.empty();
 }
+
+
+/*
+ * BFS iterator implementation.
+ */
+
+Graph::BFSIterator::BFSIterator(uint source, Graph* g) {
+    _g = g;
+    _source = source;
+    _visited_nodes = vector<bool>((*g).getNodesCount(), false);
+    
+    _q.push(source);
+}
+
+void Graph::BFSIterator::advance() {
+    do {
+        uint last = _q.front();
+        _q.pop();
+
+        if(!_visited_nodes[last]) {
+            _visited_nodes[last] = true;
+
+            for(auto it = (*_g).adjacentsOf(last); it.thereIsMore(); it.advance())
+                if(!_visited_nodes[it.next().first]) 
+                    _q.push(it.next().first);
+             
+        }
+        
+    } while(!_q.empty() && _visited_nodes[_q.front()]);
+    
+    return;
+}
+
+uint Graph::BFSIterator::next() const {
+    return _q.front();
+}
+
+bool Graph::BFSIterator::thereIsMore() const {
+    return !_q.empty();
+}

@@ -5,6 +5,7 @@
 #include <list>
 #include <string>
 #include <stack>
+#include <queue>
 
 typedef unsigned int uint;
 
@@ -15,6 +16,7 @@ class Graph {
 public:
     class AdjacentsIterator;
     class DFSIterator;
+    class BFSIterator;
     
     struct Edge {
         uint from;
@@ -211,6 +213,27 @@ public:
             Graph* _g;
             uint _source;
             std::stack<uint> _q;
+            std::vector<bool> _visited_nodes;
+    };
+
+    class BFSIterator {
+
+        public:
+            BFSIterator(uint source, Graph* g);
+
+            /*
+             * Get current node of the iterator. This not modify the iterator status.
+             */
+            uint next() const;
+            
+            void advance();
+
+            bool thereIsMore() const;
+
+        private:
+            Graph* _g;
+            uint _source;
+            std::queue<uint> _q;
             std::vector<bool> _visited_nodes;
     };
 
