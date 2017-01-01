@@ -4,6 +4,18 @@ Graph Framework
 A framework to create and control graphs in C++, with the possibility of choosing one of the two most common graph implementations, which are based on *adjacencies lists* or *adjacencies matrix*. Also oriented/non-oriented mode is eligible.<br/>
 This framework allows you export the graph as a visual image like the following:
 ![](graph2.png)
+
+Some of the most important features are:
+* Support for oriented/non-oriented mode.
+* Support for weighted/unweighted mode.
+* The base implementation can be based on adyacencies lists or adjacencies matrix, elegible by the user.
+* Neighbors iterator, to iterate only over the neighbors of a given node in an efficient way, using the base implementation selected by the user.
+* Optimal performance for each basic operation (following the representation mode selected by the user).
+* Export to a graphic format, to see the current graph dumped on an image.
+* Many useful methods available for the most common needs of a graph.
+[//]: # (DFS Iterator to iterate throw the nodes in a DFS way.)
+[//]: # (BFS Iterator to iterate throw the nodes in a BFS way.)
+
 ## Usage
 A real example of usage can be found on my [Dijkstra's Algorithm implementation](https://github.com/pablogomez93/Dijkstra). Also, there is a example.cpp file in this repository with a little example of usage, to watch it compile and run just use make all && make run.<br/>
 
