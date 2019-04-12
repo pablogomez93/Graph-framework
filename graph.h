@@ -54,9 +54,9 @@ public:
      * Nodes are represented by numbers between 0 and n-1 inclusive.
      * Is necesary to define if the graph is oriented or not and if it is implemented 
        over adjacencies matrix (ADJACENCIES_MATRIX) or adjacencies lists (ADJACENCIES_LIST).
-       If not nodes count is specified, the default value is 0.
-       If not orientation is specified, the default value is false.
-       If not implementation is specified, the default imple is ADJACENCIES_MATRIX
+       - If not nodes count is specified, the default value is 0.
+       - If not orientation is specified, the default value is false.
+       - If not implementation is specified, the default imple is ADJACENCIES_MATRIX
      * Each impl gets different execution times for each graph operation.
      */
     Graph(uint n = 0, bool isOrientedGraph = false, IMPL impl = ADJACENCIES_MATRIX);
