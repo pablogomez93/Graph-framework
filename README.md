@@ -309,7 +309,7 @@ ADJACENCIES LISTS | *O(1)*
 const AdjacentsIterator adjacentsOf(unsigned int v) const;
 ```
 ### Neighbors/Adjacencies Iterator:
-This framework also includes a neighbors iterator for a given node. It provides the member functions to advance the iterator, ask for the current, and check if there is more neighbors before advance; this are the most necessary things to iterate over the neighbors.
+This framework also includes a neighbors iterator for a given node. It provides the member functions to advance the iterator, ask for the current, and check if there is more neighbors before advance; these are the most necessary things to iterate over the neighbors.
 #### Constructor
 To get an AdjacentsIterator just use the ***adjacentsOf*** method of a graph instance (see the documentation of this [method](#adjacentsof) above), which returns a new iterator of type AdjacentsIterator for a single node *v*.
 #### Available iterator methods:
