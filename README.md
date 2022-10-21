@@ -13,8 +13,8 @@ Some of the most important features are:
 * Optimal performance for each basic operation (following the representation mode selected by the user).
 * Export to a graphic format, to see the current graph dumped on an image.
 * Many useful methods available for the most common needs of a graph.
-[//]: # (DFS Iterator to iterate throw the nodes in a DFS way.)
-[//]: # (BFS Iterator to iterate throw the nodes in a BFS way.)
+[//]: # (DFS Iterator to iterate through the nodes in a DFS way.)
+[//]: # (BFS Iterator to iterate through the nodes in a BFS way.)
 
 ## Usage
 A real example of usage can be found on my [Dijkstra's Algorithm implementation](https://github.com/pablogomez93/Dijkstra). Also, there is a example.cpp file in this repository with a little example of usage, to watch it compile and run just use make all && make run.<br/>
